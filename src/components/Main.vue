@@ -12,18 +12,21 @@
           </MenuItem>
         </Menu>
       </div>
-      <div class="user-box">
-        <Dropdown trigger="click">
-          <div class="user-handler">
-            <Avatar icon="person" size="small"/>
-            <span class="user-name">超级管理员</span>
-            <Icon :type="userHandlerIcon"/>
-          </div>
-          <DropdownMenu slot="list">
-            <DropdownItem>个人信息</DropdownItem>
-            <DropdownItem>退出</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+      <div class="header-part">
+        <div class="user-box">
+          <Dropdown trigger="click">
+            <div class="user-handler">
+              <Avatar icon="person" size="small"/>
+              <span class="user-name">超级管理员</span>
+              <Icon :type="userHandlerIcon"/>
+            </div>
+            <DropdownMenu slot="list">
+              <DropdownItem>个人信息</DropdownItem>
+              <DropdownItem>退出</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
+        <full-screen v-model="isFullScreen"/>
       </div>
     </Header>
     <Layout>
@@ -36,8 +39,12 @@
 import FullScreen from '@/components/common/FullScreen'
 export default {
   name: 'Main',
+  components: {
+    FullScreen
+  },
   data () {
     return {
+      isFullScreen: false,
       userHandlerIcon: 'arrow-down-b'
     }
   }
@@ -52,7 +59,7 @@ export default {
     .header-part {
       display: flex;
       .logo {
-        color: #fff;
+        color: $light-text;
       }
       .menu {
         margin-left: 30px;
@@ -62,7 +69,7 @@ export default {
     }
     .user-box {
       .user-handler {
-        color: #fff;
+        color: $light-text;
         cursor: pointer;
         display: flex;
         align-items: center;

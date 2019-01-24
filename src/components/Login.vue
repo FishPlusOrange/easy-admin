@@ -51,15 +51,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$radius-size: 4px;
-$light-bg: rgba(255, 255, 255, .7);
-$dark-bg: rgba(73, 80, 96, .7);
-$light-text: rgba(255, 255, 255, 1);
-@mixin square($size: 100%) {
-  width: $size;
-  height: $size;
-}
-
 .login {
   @include square;
   display: flex;
