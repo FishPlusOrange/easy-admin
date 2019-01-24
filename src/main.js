@@ -18,6 +18,7 @@ Vue.prototype.$qs = qs
 
 Vue.config.productionTip = false
 
+/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

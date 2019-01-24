@@ -25,7 +25,7 @@
 <script>
 export default {
   name: 'Login',
-  data() {
+  data () {
     return {
       loginTip: '登录',
       isLogin: false
@@ -33,8 +33,8 @@ export default {
   },
   methods: {
     // 用户登录
-    userLogin() {
-      if(!this.isLogin) {
+    userLogin () {
+      if (!this.isLogin) {
         this.toggleLogin(true)
         setTimeout(() => {
           this.$router.push({ name: 'main' })
@@ -42,7 +42,7 @@ export default {
       }
     },
     // 切换登录状态
-    toggleLogin(flag) {
+    toggleLogin (flag) {
       this.loginTip = flag ? '登录中...' : '登录'
       this.isLogin = flag
     }
