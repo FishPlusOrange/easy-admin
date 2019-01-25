@@ -6,11 +6,21 @@
       </div>
       <div class="login-row">
         <label><Icon type="person"/></label>
-        <input type="text" placeholder="请输入用户名" @keyup.enter="userLogin">
+        <input
+          type="text"
+          placeholder="请输入用户名"
+          v-model="username"
+          @keyup.enter="userLogin"
+        >
       </div>
       <div class="login-row">
         <label><Icon type="key"/></label>
-        <input type="password" placeholder="请输入密码" @keyup.enter="userLogin">
+        <input
+          type="password"
+          placeholder="请输入密码"
+          v-model="password"
+          @keyup.enter="userLogin"
+        >
       </div>
       <div class="login-row">
         <input type="button" v-model="loginTip" @click="userLogin">
@@ -28,17 +38,31 @@ export default {
   data () {
     return {
       loginTip: '登录',
-      isLogin: false
+      isLogin: false,
+      username: '',
+      password: ''
     }
   },
   methods: {
     // 用户登录
     userLogin () {
+      if (!this.username || !this.password) {
+        this.$Message.warning('用户名和密码都不能为空')
+        return
+      }
       if (!this.isLogin) {
         this.toggleLogin(true)
-        setTimeout(() => {
-          this.$router.push({ name: 'main' })
-        }, 1000)
+        this.$axios.post('/user/login', this.$qs.stringify({
+          username: this.username,
+          password: this.password
+        }))
+          .then(res => {
+            this.$router.push({name: 'main'}) // 路由跳转
+          })
+          .catch(err => {
+            this.$Message.error(`${err.response.status}：用户登录失败，请稍后再试`)
+            this.toggleLogin(false) // 切换登录状态
+          })
       }
     },
     // 切换登录状态

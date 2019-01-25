@@ -9,6 +9,7 @@ import 'iview/dist/styles/iview.css'
 import http from '@/libs/http'
 import api from '@/libs/api'
 import common from '@/assets/js/common'
+import './mock'
 
 Vue.use(iView)
 Vue.use(common)
