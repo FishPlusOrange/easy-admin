@@ -17,6 +17,4 @@ export const getToken = () => {
 }
 
 // 设置 token
-export const setToken = token => {
-  token ? localStorage.setItem('token', token) : localStorage.removeItem('token')
-}
+export const setToken = token => localStorage.setItem('token', token)

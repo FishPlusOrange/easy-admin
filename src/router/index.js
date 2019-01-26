@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
   const token = getToken()
   if (token) {
     // 处于登录状态时向登录页跳转
-    if (to.path === '/login') {
+    if (to.name === 'login') {
       next({ name: 'main' }) // 重定向至系统主页
     } else {
       if (store.getters.hasGotUserInfo) {
@@ -38,7 +38,7 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     // 判断是否在免登陆白名单中
-    if (whiteList.includes(to.path)) {
+    if (whiteList.includes(to.name)) {
       next()
     } else {
       next({ name: 'login' }) // 重定向至登录页
