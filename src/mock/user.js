@@ -1,5 +1,5 @@
 export const userLogin = req => {
-  console.log(req)
+  return { token: 'superAdmin' }
 }
 
 export const userLogout = req => {

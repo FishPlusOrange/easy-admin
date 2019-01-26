@@ -10,7 +10,7 @@
           type="text"
           placeholder="请输入用户名"
           v-model="username"
-          @keyup.enter="userLogin"
+          @keyup.enter="handleUserLogin"
         >
       </div>
       <div class="login-row">
@@ -19,11 +19,11 @@
           type="password"
           placeholder="请输入密码"
           v-model="password"
-          @keyup.enter="userLogin"
+          @keyup.enter="handleUserLogin"
         >
       </div>
       <div class="login-row">
-        <input type="button" v-model="loginTip" @click="userLogin">
+        <input type="button" v-model="loginTip" @click="handleUserLogin">
       </div>
     </div>
     <div class="copyright">
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { setToken } from '@/libs/util'
+import { mapActions } from 'vuex'
 export default {
   name: 'Login',
   data () {
@@ -44,20 +46,23 @@ export default {
     }
   },
   methods: {
-    // 用户登录
-    userLogin () {
+    ...mapActions([
+      'userLogin'
+    ]),
+    // 用户登录操作
+    handleUserLogin () {
       if (!this.username || !this.password) {
         this.$Message.warning('用户名和密码都不能为空')
         return
       }
       if (!this.isLogin) {
         this.toggleLogin(true)
-        this.$axios.post('/user/login', this.$qs.stringify({
+        this.userLogin({
           username: this.username,
           password: this.password
-        }))
-          .then(res => {
-            this.$router.push({name: 'main'}) // 路由跳转
+        })
+          .then(() => {
+            this.$router.push({ name: 'main' }) // 路由跳转
           })
           .catch(err => {
             this.$Message.error(`${err.response.status}：用户登录失败，请稍后再试`)
