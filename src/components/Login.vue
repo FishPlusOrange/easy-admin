@@ -9,7 +9,7 @@
         <input
           type="text"
           placeholder="请输入用户名"
-          v-model="username"
+          v-model="loginName"
           @keyup.enter="handleUserLogin"
         >
       </div>
@@ -41,7 +41,7 @@ export default {
     return {
       loginTip: '登录',
       isLogin: false,
-      username: '',
+      loginName: 'FishPlusOrange',
       password: ''
     }
   },
@@ -51,14 +51,14 @@ export default {
     ]),
     // 用户登录操作
     handleUserLogin () {
-      if (!this.username || !this.password) {
+      if (!this.loginName || !this.password) {
         this.$Message.warning('用户名和密码都不能为空')
         return
       }
       if (!this.isLogin) {
         this.toggleLogin(true)
         this.userLogin({
-          username: this.username,
+          loginName: this.loginName,
           password: this.password
         })
           .then(() => {

@@ -17,7 +17,7 @@
           <Dropdown trigger="click">
             <div class="user-handler">
               <Avatar icon="person" size="small"/>
-              <span class="user-name">超级管理员</span>
+              <span class="user-name">管理员</span>
               <Icon :type="userHandlerIcon"/>
             </div>
             <DropdownMenu slot="list">

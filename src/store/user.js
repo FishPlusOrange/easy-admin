@@ -4,22 +4,37 @@ import { getToken, setToken } from '@/libs/util'
 
 export default {
   state: {
-    token: getToken()
+    token: getToken(),
+    userInfo: {
+      userId: '',
+      userName: '',
+      email: '',
+      avatar: '',
+      access: ''
+    }
   },
-  getters: {},
+  getters: {
+    hasGotUserInfo (state) {
+      return !!state.userInfo.userId
+    }
+  },
   mutations: {
     setToken (state, payload) {
       const token = payload.token
       state.token = token
       setToken(token)
+    },
+    setUserInfo (state, payload) {
+      const userInfo = payload.userInfo
+      state.userInfo = userInfo
     }
   },
   actions: {
     // 用户登录
-    userLogin ({ state, commit }, { username, password }) {
+    userLogin ({ state, commit }, { loginName, password }) {
       return new Promise((resolve, reject) => {
         axios.post('/user/login', qs.stringify({
-          username,
+          loginName,
           password
         }))
           .then(res => {
@@ -33,6 +48,22 @@ export default {
       })
     },
     // 获取用户信息
-    getUserInfo ({ state, commit }) {}
+    getUserInfo ({ state, commit }) {
+      return new Promise((resolve, reject) => {
+        axios.get('/user/getInfo', {
+          params: {
+            token: state.token
+          }
+        })
+          .then(res => {
+            const userInfo = res.data.userInfo
+            commit('setUserInfo', { userInfo })
+            resolve()
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    }
   }
 }

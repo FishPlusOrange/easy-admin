@@ -4,7 +4,7 @@ import store from '@/store'
 import iView from 'iview'
 import routes from './routes'
 import whiteList from './whiteList'
-import { getToken } from '@/libs/util'
+import { getToken, setToken } from '@/libs/util'
 
 Vue.use(Router)
 
@@ -23,7 +23,18 @@ router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
       next({ name: 'main' }) // 重定向至系统主页
     } else {
-      next() // TODO 权限控制
+      if (store.getters.hasGotUserInfo) {
+        next() // TODO 权限控制
+      } else {
+        store.dispatch('getUserInfo')
+          .then(userInfo => {
+            next() // TODO 权限控制
+          })
+          .catch(() => {
+            setToken('') // 清空 token
+            next({ name: 'login' })
+          })
+      }
     }
   } else {
     // 判断是否在免登陆白名单中
