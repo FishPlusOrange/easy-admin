@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { setToken } from '@/libs/util'
+import { getToken, setToken } from '@/libs/util'
 import { mapActions } from 'vuex'
 export default {
   name: 'Login',
@@ -62,11 +62,15 @@ export default {
           password: this.password
         })
           .then(() => {
-            this.$router.push({ name: 'main' }) // 路由跳转
+            const token = getToken()
+            if (token) {
+              this.$router.push({ name: 'main' }) // 路由跳转
+            } else {
+              this.handleLoginErr('用户名或密码错误，请确认后再试')
+            }
           })
-          .catch(err => {
-            this.$Message.error(`${err.response.status}：用户登录失败，请稍后再试`)
-            this.toggleLogin(false) // 切换登录状态
+          .catch(() => {
+            this.handleLoginErr('用户登录失败，请稍后再试')
           })
       }
     },
@@ -74,6 +78,11 @@ export default {
     toggleLogin (flag) {
       this.loginTip = flag ? '登录中...' : '登录'
       this.isLogin = flag
+    },
+    // 登录失败
+    handleLoginErr (errTip) {
+      this.$Message.error(errTip)
+      this.toggleLogin(false) // 切换登录状态
     }
   }
 }
