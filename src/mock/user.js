@@ -19,7 +19,7 @@ export const userLogin = req => {
 }
 
 export const userLogout = req => {
-  console.log(req)
+  return false
 }
 
 export const getInfo = req => {

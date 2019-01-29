@@ -47,6 +47,19 @@ export default {
           })
       })
     },
+    // 退出登录
+    userLogout ({ state, commit }) {
+      return new Promise((resolve, reject) => {
+        axios.post('/user/logout')
+          .then(() => {
+            commit('setToken', { token: '' }) // 初始化 token
+            resolve()
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
     // 获取用户信息
     getUserInfo ({ state, commit }) {
       return new Promise((resolve, reject) => {

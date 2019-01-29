@@ -13,7 +13,7 @@
         </Menu>
       </div>
       <div class="header-part">
-        <user-panel/>
+        <user-panel :userInfo="userInfo"/>
         <full-screen v-model="isFullScreen"/>
       </div>
     </Header>
@@ -26,6 +26,7 @@
 <script>
 import UserPanel from './components/UserPanel'
 import FullScreen from './components/FullScreen'
+import { mapState } from 'vuex'
 export default {
   name: 'Main',
   components: {
@@ -36,6 +37,11 @@ export default {
     return {
       isFullScreen: false
     }
+  },
+  computed: {
+    ...mapState({
+      userInfo: state => state.user.userInfo
+    })
   }
 }
 </script>
