@@ -17,7 +17,10 @@ export default {
     prop: 'isFullScreen'
   },
   props: {
-    isFullScreen: Boolean
+    isFullScreen: {
+      type: Boolean,
+      required: true
+    }
   },
   computed: {
     showFullScreenBtn () {

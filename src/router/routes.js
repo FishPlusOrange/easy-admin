@@ -6,11 +6,11 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: resolve => require(['@/components/Login'], resolve)
+    component: resolve => require(['@/components/login'], resolve)
   },
   {
     path: '/main',
     name: 'main',
-    component: resolve => require(['@/components/Main'], resolve)
+    component: resolve => require(['@/components/main'], resolve)
   }
 ]

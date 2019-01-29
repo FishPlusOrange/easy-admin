@@ -13,19 +13,7 @@
         </Menu>
       </div>
       <div class="header-part">
-        <div class="user-box">
-          <Dropdown trigger="click">
-            <div class="user-handler">
-              <Avatar icon="person" size="small"/>
-              <span class="user-name">管理员</span>
-              <Icon :type="userHandlerIcon"/>
-            </div>
-            <DropdownMenu slot="list">
-              <DropdownItem>个人信息</DropdownItem>
-              <DropdownItem>退出</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </div>
+        <user-panel/>
         <full-screen v-model="isFullScreen"/>
       </div>
     </Header>
@@ -36,16 +24,17 @@
 </template>
 
 <script>
-import FullScreen from '@/components/common/FullScreen'
+import UserPanel from './components/UserPanel'
+import FullScreen from './components/FullScreen'
 export default {
   name: 'Main',
   components: {
+    UserPanel,
     FullScreen
   },
   data () {
     return {
-      isFullScreen: false,
-      userHandlerIcon: 'arrow-down-b'
+      isFullScreen: false
     }
   }
 }
@@ -65,21 +54,6 @@ export default {
         margin-left: 30px;
         height: 64px;
         line-height: 64px;
-      }
-    }
-    .user-box {
-      .user-handler {
-        color: $light-text;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        .user-name {
-          margin: 0 8px;
-          max-width: 100px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
       }
     }
   }
