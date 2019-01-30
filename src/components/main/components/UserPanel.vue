@@ -77,7 +77,7 @@ export default {
     confirmLogout () {
       this.$Modal.confirm({
         title: '退出登录',
-        content: '确认要退出登录吗？',
+        content: '确定退出登录吗？',
         onOk: this.handlerUserLogout
       })
     },

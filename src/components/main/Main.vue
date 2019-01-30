@@ -1,37 +1,38 @@
 <template>
   <Layout class="main">
-    <Header class="header">
-      <div class="header-part">
-        <div class="logo">
-          <h1>Easy Admin</h1>
-        </div>
-        <Menu class="menu" mode="horizontal" theme="dark">
-          <MenuItem name="system">
-            <Icon type="settings"/>
-            系统管理
-          </MenuItem>
-        </Menu>
-      </div>
-      <div class="header-part">
+    <Header>
+      <header-menu>
         <user-panel :userInfo="userInfo"/>
         <full-screen v-model="isFullScreen"/>
-      </div>
+      </header-menu>
     </Header>
-    <Layout>
-      <router-view/>
+    <Layout class="content">
+      <Sider>
+        <sider-menu/>
+      </Sider>
+      <Layout class="main-content">
+        <Content class="main-content-inner">
+          <router-view/>
+        </Content>
+        <Footer class="footer">Easy Admin By FishPlusOrange</Footer>
+      </Layout>
     </Layout>
   </Layout>
 </template>
 
 <script>
+import HeaderMenu from './components/HeaderMenu'
 import UserPanel from './components/UserPanel'
 import FullScreen from './components/FullScreen'
+import SiderMenu from './components/SiderMenu'
 import { mapState } from 'vuex'
 export default {
   name: 'Main',
   components: {
+    HeaderMenu,
     UserPanel,
-    FullScreen
+    FullScreen,
+    SiderMenu
   },
   data () {
     return {
@@ -46,20 +47,24 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+$gap-size: 24px;
+
 .main {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    .header-part {
-      display: flex;
-      .logo {
-        color: $light-text;
+  .content {
+    .main-content {
+      padding: $gap-size $gap-size 0;
+      .main-content-inner {
+        padding: $gap-size;
+        background: #fff;
+        display: flex;
+        flex-shrink: 0;
       }
-      .menu {
-        margin-left: 30px;
-        height: 64px;
-        line-height: 64px;
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
       }
     }
   }
