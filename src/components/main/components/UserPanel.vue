@@ -5,9 +5,9 @@
       @on-visible-change="toggleUserHandlerIcon"
     >
       <div class="user-handler">
-        <Avatar icon="person" size="small"/>
+        <Avatar icon="md-person" size="small"/>
         <span class="user-name">{{ userInfo.userName }}</span>
-        <Icon :type="userHandlerIcon"/>
+        <Icon :type="userHandlerIcon" size="16"/>
       </div>
       <DropdownMenu slot="list">
         <DropdownItem @click.native="toggleUserInfo(true)">个人信息</DropdownItem>
@@ -57,7 +57,7 @@ export default {
   },
   data () {
     return {
-      userHandlerIcon: 'arrow-down-b',
+      userHandlerIcon: 'md-arrow-dropdown',
       isShowUserInfo: false
     }
   },
@@ -67,7 +67,7 @@ export default {
     ]),
     // 切换箭头图标
     toggleUserHandlerIcon (isVisible) {
-      this.userHandlerIcon = isVisible ? 'arrow-up-b' : 'arrow-down-b'
+      this.userHandlerIcon = isVisible ? 'md-arrow-dropup' : 'md-arrow-dropdown'
     },
     // 查看用户信息
     toggleUserInfo (isShow) {
