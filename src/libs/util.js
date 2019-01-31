@@ -24,7 +24,7 @@ export const nextWithAccess = (to, next, access, routes) => {
   if (judgeAccess(to.name, access, routes)) {
     next()
   } else {
-    next({ replace: true, name: 'error401' })
+    next({ replace: true, name: 'error_401' })
   }
 }
 
@@ -44,6 +44,6 @@ export const hasAccess = (route, access) => {
   if (route.meta && route.meta.access) {
     return access.includes(route.meta.access)
   } else {
-    return true // 没有 meta 字段表示有权限
+    return true
   }
 }
