@@ -4,7 +4,7 @@ import store from '@/store'
 import iView from 'iview'
 import routes from './routes'
 import whiteList from './whiteList'
-import { getToken, setToken } from '@/libs/util'
+import { getToken, setToken, nextWithAccess } from '@/libs/util'
 
 Vue.use(Router)
 
@@ -24,11 +24,11 @@ router.beforeEach((to, from, next) => {
       next({ name: 'main' }) // 重定向至系统主页
     } else {
       if (store.getters.hasGotUserInfo) {
-        next() // TODO 权限控制
+        nextWithAccess(to, next, store.state.user.userInfo.access, routes)
       } else {
         store.dispatch('getUserInfo')
           .then(userInfo => {
-            next() // TODO 权限控制
+            nextWithAccess(to, next, store.state.user.userInfo.access, routes)
           })
           .catch(() => {
             setToken('') // 清空 token

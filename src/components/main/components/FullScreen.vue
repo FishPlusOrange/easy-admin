@@ -5,7 +5,7 @@
     @click="toggleFullScreen"
   >
     <Tooltip :content="isFullScreen ? '退出全屏' : '全屏'" placement="bottom">
-      <Icon :type="isFullScreen ? 'arrow-shrink' : 'arrow-expand'"/>
+      <Icon :type="isFullScreen ? 'md-contract' : 'md-expand'"/>
     </Tooltip>
   </div>
 </template>
