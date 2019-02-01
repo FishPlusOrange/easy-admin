@@ -20,8 +20,8 @@ router.beforeEach((to, from, next) => {
   const token = getToken()
   if (token) {
     // 处于登录状态时向登录页跳转
-    if (to.name === 'login') {
-      next({ name: 'main' }) // 重定向至系统主页
+    if (to.name === 'Login') {
+      next({ name: 'Main' }) // 重定向至系统主页
     } else {
       if (store.getters.hasGotUserInfo) {
         nextWithAccess(to, next, store.state.user.userInfo.access, routes)
@@ -32,7 +32,7 @@ router.beforeEach((to, from, next) => {
           })
           .catch(() => {
             setToken('') // 清空 token
-            next({ name: 'login' })
+            next({ name: 'Login' })
           })
       }
     }
@@ -41,7 +41,7 @@ router.beforeEach((to, from, next) => {
     if (whiteList.includes(to.name)) {
       next()
     } else {
-      next({ name: 'login' }) // 重定向至登录页
+      next({ name: 'Login' }) // 重定向至登录页
     }
   }
 })

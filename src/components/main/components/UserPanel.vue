@@ -85,7 +85,7 @@ export default {
     handlerUserLogout () {
       this.userLogout()
         .then(() => {
-          this.$router.push({ name: 'login' }) // 路由跳转登录页
+          this.$router.push({ name: 'Login' }) // 路由跳转登录页
         })
         .catch(() => {
           this.handleLoginErr('退出登录失败，请稍后再试')

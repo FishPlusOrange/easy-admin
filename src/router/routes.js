@@ -1,11 +1,11 @@
 export default [
   {
     path: '/',
-    redirect: { name: 'login' }
+    redirect: { name: 'Login' }
   },
   {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     component: resolve => require(['@/components/login'], resolve),
     meta: {
       showInMenu: false
@@ -13,7 +13,7 @@ export default [
   },
   {
     path: '/main',
-    name: 'main',
+    name: 'Main',
     component: resolve => require(['@/components/main'], resolve),
     meta: {
       showInMenu: false
@@ -21,7 +21,7 @@ export default [
   },
   {
     path: '/401',
-    name: 'error_401',
+    name: 'Error401',
     component: resolve => require(['@/components/error/401'], resolve),
     meta: {
       showInMenu: false
@@ -29,7 +29,7 @@ export default [
   },
   {
     path: '*',
-    name: 'error_404',
+    name: 'Error404',
     component: resolve => require(['@/components/error/404'], resolve),
     meta: {
       showInMenu: false

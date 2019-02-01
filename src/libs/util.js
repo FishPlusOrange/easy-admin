@@ -24,7 +24,7 @@ export const nextWithAccess = (to, next, access, routes) => {
   if (judgeAccess(to.name, access, routes)) {
     next()
   } else {
-    next({ replace: true, name: 'error_401' })
+    next({ replace: true, name: 'Error401' })
   }
 }
 

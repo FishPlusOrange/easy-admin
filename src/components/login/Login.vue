@@ -41,7 +41,7 @@ export default {
           .then(() => {
             const token = getToken()
             if (token) {
-              this.$router.push({ name: 'main' }) // 路由跳转主页
+              this.$router.push({ name: 'Main' }) // 路由跳转主页
             } else {
               this.handleLoginErr('用户名或密码错误，请确认后再试')
             }
