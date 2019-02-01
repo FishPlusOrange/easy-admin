@@ -15,6 +15,7 @@ An admin management system template based on Vue 2.x and iView 3.x
 - Mock.js
 - Sass
 - Flex
+- Webpack
 
 ## Get Project
 
