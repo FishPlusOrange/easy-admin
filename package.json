@@ -1,15 +1,27 @@
 {
   "name": "easy-admin",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "FishPlusOrange",
-  "private": true,
+  "description": "A management system template based on Vue and iView",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FishPlusOrange/easy-admin.git"
+  },
+  "keywords": [
+    "vue",
+    "iview",
+    "management-system"
+  ],
+  "author": "FishPlusOrange",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FishPlusOrange/easy-admin/issues"
+  },
+  "homepage": "https://github.com/FishPlusOrange/easy-admin#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "iview": "^3.2.2",

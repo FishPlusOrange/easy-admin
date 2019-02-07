@@ -1,33 +1,16 @@
 # Easy Admin
 
-An admin management system template based on Vue 2.x and iView 3.x
+A management system template based on Vue and iView.
 
-## Technology Stack
-
-- Vue 2.x
-- Vue CLI
-- Vue Router
-- Vuex
-- iView 3.x
-- ES6
-- ESLint
-- Axios
-- Mock.js
-- Sass
-- Flex
-- Webpack
-
-## Get Project
+## Start
 
 ```bash
+# clone with Git Bash
 git clone https://github.com/FishPlusOrange/easy-admin.git
 
+# change directory
 cd easy-admin
-```
 
-## Build Setup
-
-```bash
 # install dependencies
 npm install
 
@@ -40,3 +23,9 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+
+## License
+
+[MIT](https://github.com/FishPlusOrange/easy-admin/blob/master/LICENSE)
+
+Copyright (c) 2018-present FishPlusOrange
