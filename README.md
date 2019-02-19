@@ -1,5 +1,7 @@
 # Easy Admin
 
+[![Build Status](https://www.travis-ci.org/FishPlusOrange/easy-admin.svg?branch=master)](https://www.travis-ci.org/FishPlusOrange/easy-admin)
+
 A management system template based on Vue and iView.
 
 ## Start
