@@ -1,7 +1,7 @@
 <template>
   <div class="login-panel">
     <div class="login-row">
-      <h1>Easy Admin</h1>
+      <h1>Admin by Vue</h1>
     </div>
     <div class="login-row">
       <label><Icon type="person"/></label>

@@ -14,7 +14,7 @@
         <Content class="main-content-inner">
           <router-view/>
         </Content>
-        <Footer class="footer">Easy Admin By FishPlusOrange</Footer>
+        <Footer class="footer">By FishPlusOrange</Footer>
       </Layout>
     </Layout>
   </Layout>

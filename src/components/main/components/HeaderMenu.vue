@@ -2,7 +2,7 @@
   <div class="header-menu">
     <div class="header-part">
       <div class="logo">
-        <h1>Easy Admin</h1>
+        <h1>Admin by Vue</h1>
       </div>
       <Menu class="menu" mode="horizontal" theme="dark">
         <MenuItem class="menu-item" name="system">

@@ -1,6 +1,6 @@
-# Easy Admin
+# Admin by Vue
 
-[![Build Status](https://www.travis-ci.org/FishPlusOrange/easy-admin.svg?branch=master)](https://www.travis-ci.org/FishPlusOrange/easy-admin)
+[![Build Status](https://www.travis-ci.org/FishPlusOrange/admin-by-vue.svg?branch=master)](https://www.travis-ci.org/FishPlusOrange/admin-by-vue)
 
 A management system template based on Vue and iView.
 
@@ -8,10 +8,10 @@ A management system template based on Vue and iView.
 
 ```bash
 # clone with Git Bash
-git clone https://github.com/FishPlusOrange/easy-admin.git
+git clone https://github.com/FishPlusOrange/admin-by-vue.git
 
 # change directory
-cd easy-admin
+cd admin-by-vue
 
 # install dependencies
 npm install
@@ -28,6 +28,6 @@ npm run build --report
 
 ## License
 
-[MIT](https://github.com/FishPlusOrange/easy-admin/blob/master/LICENSE)
+[MIT](https://github.com/FishPlusOrange/admin-by-vue/blob/master/LICENSE)
 
 Copyright (c) 2018-present FishPlusOrange
